@@ -1,13 +1,39 @@
-const button1 = document.getElementById('button1');
-let audio1 = new Audio();
-audio1.src = "audio.wav"
 
-button1.addEventListener("click", function() {
+const container = document.getElementById("container");
+const canvas = document.getElementById("canvas1");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext("2d");
+let audioSource;
+let analyser;
+
+container.addEventListener("click", function() {
+    let audio1 = new Audio("audio.wav");
+    const audioContext = new (window.AudioContext)();
     audio1.play();
-    audio1.addEventListener("playing", function() {
-        console.log("audio playing")
-    })
-    audio1.addEventListener("ended", function() {
-        console.log("audio ended")
-    })
+    audioSource = audioContext.createMediaElementSource(audio1);
+    analyser = audioContext.createAnalyser();
+    audioSource.connect(analyser);
+    analyser.connect(audioContext.destination);
+    analyser.fftSize = 64;
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    const barWidth = canvas.width/bufferLength;
+    let barHeight;
+    let x;
+
+    function animate() {
+        x=0;
+        ctx.clearRect(0,0,canvas.width, canvas.height);
+        analyser.getByteFrequencyData(dataArray);
+        for(let i = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i]*2;
+            ctx.fillStyle = "white";
+            ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+            x+= barWidth;
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
 })
