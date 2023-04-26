@@ -1,7 +1,26 @@
 
+body {
+    background: linear-gradient(to right, #8A2387, #E94057, #F27121);
+}
 
 #horizontal-center {
     text-align: center;
+}
+
+#container {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    width: 100%;
+    height: 65%;
+}
+
+#canvas1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 h1, h2{
@@ -14,9 +33,6 @@ h2 {
     font-size: 20px;
 } 
 
-body {
-    background: linear-gradient(to right, #8A2387, #E94057, #F27121);
-}
 
 button {
     background-color: black;
