@@ -1,4 +1,3 @@
-
 const container = document.getElementById("container");
 const canvas = document.getElementById("canvas1");
 canvas.width = window.innerWidth;
@@ -15,7 +14,7 @@ container.addEventListener("click", function() {
     analyser = audioContext.createAnalyser();
     audioSource.connect(analyser);
     analyser.connect(audioContext.destination);
-    analyser.fftSize = 128;
+    analyser.fftSize = 512;
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
 
