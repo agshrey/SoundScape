@@ -10,7 +10,7 @@ const ctx = canvas.getContext("2d");
 let audioSource;
 let analyser;
 
-let audio1 = new Audio("hindi.mp3");
+let audio1 = new Audio("zindagi.mp3");
 let audioContext;
 
 let myReq;

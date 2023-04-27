@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <title>SoundScape - Audio Visualizer</title>
 </head>
 <body>
     <div id="horizontal-center">
         <h1>SoundScape</h1>
-        <h2>some nice subtitle</h2>
-        <button id="spotify">Connect to Spotify <img src="spotify_logo.png"></button>
+        <h2>a modern way to visualize your audio.</h2>
 
-        <button id="play">Play</button>
-        <button id="pause">Pause</button>
-        <button id="stop">Stop</button>
+        <button id="previous">previous ⏪</button>
+        <button id="play">play ▶️</button>
+        <button id="pause">pause ⏸</button>
+        <button id="stop">restart 🔄</button>
+        <button id="skip">skip ⏩</button>
+        <br>
+        <button id="spotify">connect to spotify <img src="spotify_logo.png"></button>
+        <button id="switch">switch visualization style 📊</button>
 
-        <button id="switch">Switch visualization style</button>
         <div id="container">
             <canvas id="canvas1"></canvas>
         </div>
